@@ -22,7 +22,7 @@ export const VennDiagram: React.FC<VennDiagramProps> = ({ data, simple = false }
   const leftCenter = { x: centerX - offset, y: centerY };
 
   const CircleGroup = ({ 
-    x, y, color, label, items, className 
+    x, y, color, items, className 
   }: { x: number, y: number, color: string, label: string, items: string[], className?: string }) => (
     <g className={className}>
       <circle 

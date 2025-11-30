@@ -1,11 +1,9 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { IkigaiState, IkigaiAnalysis } from "../types";
 
-const apiKey = process.env.API_KEY;
-
 // Normally we would error here, but for the sake of the demo, we assume the environment is set up correctly
 // or the build process injects it.
-const ai = new GoogleGenAI({ apiKey: apiKey });
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export const generateIkigaiAnalysis = async (data: IkigaiState): Promise<IkigaiAnalysis> => {
   const modelId = "gemini-2.5-flash";

@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import { useState } from 'react';
 import { IkigaiState, IkigaiAnalysis, Step } from './types';
 import { generateIkigaiAnalysis } from './services/geminiService';
 import { InputSection } from './components/InputSection';
