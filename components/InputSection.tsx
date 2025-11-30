@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, KeyboardEvent, FC } from 'react';
 
 interface InputSectionProps {
   title: string;
@@ -9,7 +9,7 @@ interface InputSectionProps {
   onRemove: (index: number) => void;
 }
 
-export const InputSection: React.FC<InputSectionProps> = ({ 
+export const InputSection: FC<InputSectionProps> = ({ 
   title, 
   description, 
   color, 
@@ -19,7 +19,7 @@ export const InputSection: React.FC<InputSectionProps> = ({
 }) => {
   const [inputValue, setInputValue] = useState('');
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Enter' && inputValue.trim()) {
       onAdd(inputValue.trim());
       setInputValue('');

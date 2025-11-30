@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import { IkigaiAnalysis, IkigaiState } from '../types';
 import { VennDiagram } from './VennDiagram';
 
@@ -8,7 +8,7 @@ interface AnalysisResultProps {
   onReset: () => void;
 }
 
-export const AnalysisResult: React.FC<AnalysisResultProps> = ({ analysis, data, onReset }) => {
+export const AnalysisResult: FC<AnalysisResultProps> = ({ analysis, data, onReset }) => {
   if (!analysis) return null;
 
   const IntersectionCard = ({ title, content, color }: { title: string, content: string, color: string }) => (

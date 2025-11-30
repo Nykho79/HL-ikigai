@@ -1,8 +1,13 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { IkigaiState, IkigaiAnalysis } from "../types";
 
-// Normally we would error here, but for the sake of the demo, we assume the environment is set up correctly
-// or the build process injects it.
+// Declaration to avoid TypeScript errors if types are missing
+declare const process: {
+  env: {
+    API_KEY: string;
+  };
+};
+
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export const generateIkigaiAnalysis = async (data: IkigaiState): Promise<IkigaiAnalysis> => {

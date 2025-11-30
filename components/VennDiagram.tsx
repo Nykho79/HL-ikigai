@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import { IkigaiState } from '../types';
 
 interface VennDiagramProps {
@@ -6,7 +6,7 @@ interface VennDiagramProps {
   simple?: boolean;
 }
 
-export const VennDiagram: React.FC<VennDiagramProps> = ({ data, simple = false }) => {
+export const VennDiagram: FC<VennDiagramProps> = ({ data, simple = false }) => {
   // SVG coordinates and sizes
   const width = 600;
   const height = 600;
