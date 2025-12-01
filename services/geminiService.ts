@@ -8,9 +8,15 @@ declare const process: {
   };
 };
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 export const generateIkigaiAnalysis = async (data: IkigaiState): Promise<IkigaiAnalysis> => {
+  const apiKey = process.env.API_KEY;
+
+  if (!apiKey || apiKey === "undefined" || apiKey === "") {
+    throw new Error("Clé API manquante. Veuillez configurer la variable d'environnement API_KEY dans Vercel.");
+  }
+
+  // Initialize only when needed to avoid crash on load
+  const ai = new GoogleGenAI({ apiKey: apiKey });
   const modelId = "gemini-2.5-flash";
   
   const prompt = `

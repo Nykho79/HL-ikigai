@@ -9,7 +9,8 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     define: {
       // Remplace process.env.API_KEY par la valeur réelle lors du build
-      'process.env.API_KEY': JSON.stringify(env.API_KEY)
+      // Utilise une chaîne vide par défaut pour éviter les erreurs "undefined"
+      'process.env.API_KEY': JSON.stringify(env.API_KEY || '')
     }
   };
 });
